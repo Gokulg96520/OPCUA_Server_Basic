@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="OPC" Id="{30c04258-0123-4bc6-a5c6-70c646e4d6cf}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	{attribute 'OPC.UA.DA' := '1'}
+	bBoolVariable : BOOL;
+	{attribute 'OPC.UA.DA' := '1'}
+	iIntVariable : INT;
+	{attribute 'OPC.UA.DA' := '1'}
+	fRealVariable : REAL;
+	
+	//For Twincat 2
+	//bVariable : BOOL; (*~ (OPC:1:some description) *)
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

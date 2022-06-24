@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{32472d3f-33cb-4ba9-8c20-33b7df281d9b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Version history: 
+Date          | Version    | created under        | Author          | Remark 
+---------------------------------------------------------------------------------------- 
+24/06/2022    | 1.0.0      | V3.1 (Build 4024.29) | Gokul G         | first release 
+	* Basic OPC UA Server 
+1.Install TF6100 Function OPCUA Server In Target & Engineering PC(Restart after Installation)
+2.Install TF6100 Function OPCUA Configurator In Engineering PC (Used for Configuration of OPC Server in Visual Studio or as an Stand Alone Application)(Restart after Installation)
+3.Create an Global Variable with below atribute (Look into document for further attributes)
+	For Twincat 3
+	{attribute 'OPC.UA.DA' := '1'}
+	bVariable : BOOL;
+	For Twincat 2
+	bVariable : BOOL; (*~ (OPC:1:some description) *)
+4.Go Double Click on Top of PLC Project -> settings -> Check TMC File
+5.Then Build Project & Activate Project (Local or Target PC)
+6.OPC UA Configurator(Stand Alone) click Edit
+7. Enter the below address in Server & click get End Points
+		opc.tcp://<IPAddress>:4840
+8.Select Endpoints as (SignAndEncryptBasic256Sha256:Binary) & Click add
+9.Click Server 1 & the click Connect
+10.Initalization Has to done first time when server is setup  & enter username & password after click ok below logging message will come that server has been initialized
+11.Now again try to connect it will ask for user name, after entering password click ok then on top connection status  should be connected
+12.In Target Browser, go to object -> PLC1 -> Go down find the folder which will be named as Global variable name (Ex: OPC)
+13.By using Sample OPC Client you cab login with above created username & password, double click on variable which ever need to be monitored/Watchlist
+14.Double click on the tag & can change the value, click OK & then check the changed status inside the PLC 
+*) ]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="6" Count="5" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="20" Count="2" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="31" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="33" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
